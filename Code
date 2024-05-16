@@ -48,6 +48,10 @@ def main():
     # Determine the winner
     player_total = sum([card_value(card) for card in player_cards])
     dealer_total = sum([card_value(card) for card in dealer_cards])
+
+    ## SHOW TOTAL
+    print("player total:", player_total)
+    print("Dealer's total:", dealer_total)
     if dealer_total > 21 or player_total > dealer_total:
         print("You win!")
     elif player_total < dealer_total:
