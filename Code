@@ -47,9 +47,14 @@ def main():
             ## STAND
         elif choice == 's':
             break
-    
+    #### Dealers turn, hits when until total is 17 or greater.
+    while sum([card_value(card) for card in dealer_cards]) < 17:
+        new_card = deal_card()
+        dealer_cards.append(new_card)
+        print("Dealer drew a", new_card)
     # Show dealer's cards
     print("Dealer's cards:", dealer_cards)
+    
     
     # Determine the winner
     player_total = sum([card_value(card) for card in player_cards])
