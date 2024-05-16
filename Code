@@ -3,7 +3,7 @@
 import random
 
 def deal_card():
-    ## CArd libary
+    # Card library
     cards = [
         "2", "3", "4", "5", "6", "7", "8", "9", "10",
         "Jack", "Queen", "King", "Ace"
@@ -13,13 +13,16 @@ def deal_card():
 def main():
     print("Welcome to BlackJack!")
     
-    # assign initial cards for player and dealer
+    # Assign initial cards for player and dealer
     player_cards = [deal_card(), deal_card()]
     dealer_cards = [deal_card(), deal_card()]
+
+    ## Calculate player total here so I can display total for initial deal
+    player_total = sum([card_value(card) for card in player_cards])
     
-    #show initial cards
-    print("Your cards:", player_cards)
-    print("Dealer's cards:", [dealer_cards[0], "Unknown"])
+    # Show initial cards and total
+    print("Your cards:", player_cards, "Your total:", player_total)
+    print("Dealer shows a", dealer_cards[0])
     
     # Player's turn
     while True:
@@ -28,10 +31,13 @@ def main():
         ## HIT
         if choice == 'h':
             new_card = deal_card()
-            player_cards.append(new_card)  ##update player cards based on new dealt card 
+            player_cards.append(new_card)  ## Update player cards based on new dealt card 
             print("You drew a", new_card)
-            print("Your cards:", player_cards)
-            player_total = sum([card_value(card) for card in player_cards])
+            print("Your cards:", player_cards)  ## tried adding "new total" but it doesnt calculate the new one.
+            player_total = sum([card_value(card) for card in player_cards])  
+## card_value converts face cards to 10's and Ace to 1 or 11. no need to numberize the cards.
+            print("New Total:" , player_total)  ### Prints new total
+
 
             ## Player loses if over 21
             if player_total > 21:
@@ -50,7 +56,7 @@ def main():
     dealer_total = sum([card_value(card) for card in dealer_cards])
 
     ## SHOW TOTAL
-    print("player total:", player_total)
+    print("Your total:", player_total)
     print("Dealer's total:", dealer_total)
     if dealer_total > 21 or player_total > dealer_total:
         print("You win!")
