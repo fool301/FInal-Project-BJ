@@ -1,8 +1,13 @@
+###  add cards to make it seem more card game like
 import random
 
 def deal_card():
-    """Return a random card from 1 to 10."""
-    return random.randint(1, 10)
+    """Return a random card."""
+    cards = [
+        "2", "3", "4", "5", "6", "7", "8", "9", "10",
+        "Jack", "Queen", "King", "Ace"
+    ]
+    return random.choice(cards)
 
 def main():
     print("Welcome to the card game!")
@@ -11,15 +16,13 @@ def main():
     player_cards = [deal_card(), deal_card()]
     dealer_cards = [deal_card(), deal_card()]
     
-    # Calculate totals
-    player_total = sum(player_cards)
-    dealer_total = sum(dealer_cards)
-    
     # Show initial cards
-    print("Your cards:", player_cards, "Total:", player_total)
-    print("Dealer's cards:", dealer_cards, "Total:", dealer_total)
+    print("Your cards:", player_cards)
+    print("Dealer's cards:", dealer_cards)
     
     # Determine the winner
+    player_total = sum([card_value(card) for card in player_cards])
+    dealer_total = sum([card_value(card) for card in dealer_cards])
     if player_total > dealer_total:
         print("You win!")
     elif player_total < dealer_total:
