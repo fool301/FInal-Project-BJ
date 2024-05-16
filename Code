@@ -18,7 +18,7 @@ def main():
     
     # Show initial cards
     print("Your cards:", player_cards)
-    print("Dealer's cards:", dealer_cards)
+    print("Dealer's cards:", [" dealer_cards[0] , 'Hidden' ]) ## only show one card for dealer. 
     
     # Determine the winner
     player_total = sum([card_value(card) for card in player_cards])
