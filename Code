@@ -61,7 +61,7 @@ def main():
     dealer_total = sum([card_value(card) for card in dealer_cards])
 
     ## SHOW TOTAL
-    print("Your total:", player_total)
+    print("Your total:", player_total) #Specify what player when saying "Your total: "
     print("Dealer's total:", dealer_total)
     if dealer_total > 21 or player_total > dealer_total:
         print("You win!")
