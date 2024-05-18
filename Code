@@ -1,5 +1,7 @@
 ###  add cards to make it seem more card game like
 
+# Serema: Not too important but you can add a title to your program (maybe in the readme)
+
 import random
 
 def deal_card(): # Good choice to define the card library beforehand. - KM
@@ -69,6 +71,7 @@ def main():
         print("Dealer wins.")
     else: ## Tie
         print("Push") ## Tie
+        # Serena: You could specify its a tie instead of saying Push, or add the term in the README so players understand for clarity!
 
 
 # Start the game
